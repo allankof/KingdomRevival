@@ -18,9 +18,9 @@ public class Elf : MonoBehaviour
 
     private void MoveTo()
     {
-        if (true)
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            
+            transform.Translate(-20 * Time.deltaTime, 0, 0);
         }
     }
 }
