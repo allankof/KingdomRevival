@@ -18,9 +18,20 @@ public class Elf : MonoBehaviour
 
     private void MoveTo()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-20 * Time.deltaTime, 0, 0);
+            transform.Translate(-10 * Time.deltaTime, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(-10 * Time.deltaTime, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+    }
+
+    private void Buildings()
+    {
+        //Instantiate()
     }
 }

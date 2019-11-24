@@ -120,6 +120,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &200441291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200441292}
+  m_Layer: 0
+  m_Name: "\u5EFA\u7269"
+  m_TagString: "\u5EFA\u7BC9\u7269"
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200441292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200441291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.55, y: -7, z: -218.80353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &242018179
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +321,7 @@ PrefabInstance:
     - target: {fileID: 8633970511647204781, guid: 201fe89a3e4880a478cc18d337a60a26,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.95
+      value: -6.22
       objectReference: {fileID: 0}
     - target: {fileID: 8633970511647204781, guid: 201fe89a3e4880a478cc18d337a60a26,
         type: 3}
