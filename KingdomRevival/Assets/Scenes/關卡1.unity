@@ -129,9 +129,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 200441292}
+  - component: {fileID: 200441293}
   m_Layer: 0
-  m_Name: "\u5EFA\u7269"
-  m_TagString: "\u5EFA\u7BC9\u7269"
+  m_Name: "\u7522\u751F\u5716\u584A"
+  m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,12 +145,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200441291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.55, y: -7, z: -218.80353}
+  m_LocalPosition: {x: 7, y: 0, z: -218.80353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &200441293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200441291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e8be6cb874e7c4b88de99478dc66c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bornPoint: {fileID: 200441291}
+  GetTile:
+  - {fileID: 11400000, guid: 603873e42df304441825f11a2ccbe7e6, type: 2}
+  - {fileID: 11400000, guid: f904f70f02762f745abc1d21b8c86bf0, type: 2}
+  myTilemap: {fileID: 622214959}
 --- !u!1 &242018179
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +273,7 @@ Transform:
   m_LocalScale: {x: 146.696, y: 3.4427757, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &325882286
 GameObject:
@@ -299,7 +317,7 @@ Transform:
   m_Children:
   - {fileID: 622214957}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &328123797
 PrefabInstance:
@@ -316,7 +334,7 @@ PrefabInstance:
     - target: {fileID: 8633970511647204781, guid: 201fe89a3e4880a478cc18d337a60a26,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6362777
+      value: -9.59
       objectReference: {fileID: 0}
     - target: {fileID: 8633970511647204781, guid: 201fe89a3e4880a478cc18d337a60a26,
         type: 3}
@@ -387,7 +405,7 @@ GameObject:
   - component: {fileID: 622214959}
   - component: {fileID: 622214958}
   m_Layer: 0
-  m_Name: "\u5730\u677F"
+  m_Name: "\u5834\u5730"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
