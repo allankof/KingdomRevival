@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
     [Header("植物生成點")]
     public GameObject bornPoint;
     [Header("要使用的圖塊")]
-    public Tile[] GetTile;
+    public Tile[] myTile;
     [Header("目標Tilemap")]
     public Tilemap myTilemap;
+
+    private int timeCircle;
+    private List<Vector3> availablePlaces;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,9 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("精靈王").transform;
         mainCamera = GameObject.Find("Main Camera").transform;
         offset = player.position - mainCamera.position;
+
         
+
         TilemapBorn();
     }
 
@@ -32,7 +37,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         mainCamera.position = player.position - offset;
-
+        timeCircle = (int)Time.timeSinceLevelLoad;
+        Debug.Log(timeCircle);
     }
 
     /// <summary>
@@ -44,9 +50,9 @@ public class GameManager : MonoBehaviour
         
         List<Tile> myTiles = new List<Tile>();
 
-        for (int i = 0; i < GetTile.Length; i++)
+        for (int i = 0; i < myTile.Length; i++)
         {
-            myTiles.Add(GetTile[i]);
+            myTiles.Add(myTile[i]);
         }
         
         StartCoroutine(AddTilemap(myTilemap, bornLocation, myTiles));
@@ -64,9 +70,8 @@ public class GameManager : MonoBehaviour
         TreeRandom(tilemap, position, tiles);
         do
         {
-            position.x += Random.Range(2, 6);
+            position.x += Random.Range(4, 16);
             TreeRandom(tilemap, position, tiles);
-            position.x += Random.Range(2, 12);
             //Debug.Log(position.x);
         } while (position.x < 120);
 
@@ -82,10 +87,13 @@ public class GameManager : MonoBehaviour
     private void TreeRandom(Tilemap tilemap, Vector3Int position, List<Tile> tiles)
     {
         int n = Random.Range(0, 3);
+        int x = Random.Range(2, 4);
         if (n == 0)
         {
+            position.x += x;
             position.y -= 3;
             tilemap.SetTile(position, tiles[n]);
+            position.x += x;
         }
         else if (n == 1)
         {
@@ -98,4 +106,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void ChangeTile()
+    {
+        availablePlaces = new List<Vector3>();
+
+        foreach (var position in myTilemap.cellBounds.allPositionsWithin)
+        {
+            if (!myTilemap.HasTile(position)) continue;
+            availablePlaces.Add(position);
+        }
+        
+        
+    }
 }
