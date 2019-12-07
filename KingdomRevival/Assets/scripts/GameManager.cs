@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,16 +10,24 @@ public class GameManager : MonoBehaviour
     Transform player, mainCamera;
     // 座標距離
     Vector3 offset;
+    Vector3Int iTilePosition = new Vector3Int(-1, -1, 0);
 
     [Header("植物生成點")]
     public GameObject bornPoint;
     [Header("要使用的圖塊")]
-    public Tile[] myTile;
+    public Tile myTile;
+
+    //public ITilemap myITilemap;
     [Header("目標Tilemap")]
     public Tilemap myTilemap;
+    [Header("素材")]
+    public Sprite treeSprite01;
+    public Sprite treeSprite02;
 
     private int timeCircle;
     private List<Vector3> availablePlaces;
+    
+    //public Sprite treeSprite02;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +38,17 @@ public class GameManager : MonoBehaviour
 
         
 
-        TilemapBorn();
     }
 
     // Update is called once per frame
     void Update()
     {
         mainCamera.position = player.position - offset;
-        timeCircle = (int)Time.timeSinceLevelLoad;
-        Debug.Log(timeCircle);
+
+        ChangeTile();
     }
 
+    /*
     /// <summary>
     /// 生成背景植物
     /// </summary>
@@ -77,7 +85,7 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
     }
-
+    
     /// <summary>
     /// 隨機選擇植物
     /// </summary>
@@ -105,8 +113,8 @@ public class GameManager : MonoBehaviour
             tilemap.SetTile(position, tiles[n]);
         }
     }
-
-    private void ChangeTile()
+    */
+    private void GetAllTileLocale()
     {
         availablePlaces = new List<Vector3>();
 
@@ -115,7 +123,17 @@ public class GameManager : MonoBehaviour
             if (!myTilemap.HasTile(position)) continue;
             availablePlaces.Add(position);
         }
-        
-        
     }
+
+    private void ChangeTile()
+    {
+        timeCircle = (int)Time.realtimeSinceStartup;
+        if (timeCircle > 10)
+        {
+            //myTile.sprite = treeSprite01;
+            //myTilemap.RefreshAllTiles();
+        }
+
+    }
+
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - "\u5EFA\u7BC9\u7269"
+  - "\u8FB2\u4F5C\u7269"
   layers:
   - Default
   - TransparentFX
@@ -39,12 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 1813483333
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ground
-    uniqueID: 1813483333
-    locked: 0
   - name: buildings
     uniqueID: 2795147079
+    locked: 0
+  - name: characater
+    uniqueID: 576655041
     locked: 0
