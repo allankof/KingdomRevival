@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("植物生成點")]
     public GameObject bornPoint;
     [Header("要使用的圖塊")]
-    public Tile myTile;
+    public Tile[] myTreeTile;
 
     //public ITilemap myITilemap;
     [Header("目標Tilemap")]
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera").transform;
         offset = player.position - mainCamera.position;
 
-        
+        //TilemapBorn();
 
     }
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         ChangeTile();
     }
 
-    /*
+    
     /// <summary>
     /// 生成背景植物
     /// </summary>
@@ -58,9 +58,9 @@ public class GameManager : MonoBehaviour
         
         List<Tile> myTiles = new List<Tile>();
 
-        for (int i = 0; i < myTile.Length; i++)
+        for (int i = 0; i < myTreeTile.Length; i++)
         {
-            myTiles.Add(myTile[i]);
+            myTiles.Add(myTreeTile[i]);
         }
         
         StartCoroutine(AddTilemap(myTilemap, bornLocation, myTiles));
@@ -75,10 +75,8 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator AddTilemap(Tilemap tilemap, Vector3Int position, List<Tile> tiles)
     {
-        TreeRandom(tilemap, position, tiles);
         do
         {
-            position.x += Random.Range(4, 16);
             TreeRandom(tilemap, position, tiles);
             //Debug.Log(position.x);
         } while (position.x < 120);
@@ -94,26 +92,21 @@ public class GameManager : MonoBehaviour
     /// <param name="tiles"></param>
     private void TreeRandom(Tilemap tilemap, Vector3Int position, List<Tile> tiles)
     {
-        int n = Random.Range(0, 3);
-        int x = Random.Range(2, 4);
-        if (n == 0)
+        for (int i = 0; i < Random.Range(3, 9); i++)
         {
-            position.x += x;
-            position.y -= 3;
-            tilemap.SetTile(position, tiles[n]);
-            position.x += x;
+            position.x += Random.Range(3, 9);
+            tilemap.SetTile(position, tiles[Random.Range(1, 3)]);
         }
-        else if (n == 1)
+
+        for (int i = 0; i < Random.Range(1, 2); i++)
         {
-            tilemap.SetTile(position, tiles[n]);
+            position.x += Random.Range(3, 8);
+            tilemap.SetTile(position, tiles[0]);
+            position.x += Random.Range(3, 8);
         }
-        else
-        {
-            position.y -= 4;
-            tilemap.SetTile(position, tiles[n]);
-        }
+
     }
-    */
+    
     private void GetAllTileLocale()
     {
         availablePlaces = new List<Vector3>();
