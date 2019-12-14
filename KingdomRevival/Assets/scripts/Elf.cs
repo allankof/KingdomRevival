@@ -6,7 +6,11 @@ public class Elf : MonoBehaviour
 {
     public GameObject player;
 
-    private float moveSpeed = 10.0f;
+    public float moveSpeed = 10.0f;
+    [Header("金幣")]
+    public float money = 0;
+
+    private bool playerDirection;
     private float thrust = 1.0f;
 
     private Animator ani;
@@ -23,27 +27,30 @@ public class Elf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveTo();
-        
+        Move();
+        UseFlag();
     }
 
     /// <summary>
     /// 玩家移動
     /// </summary>
-    private void MoveTo()
+    private void Move()
     {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
             transform.rotation = Quaternion.Euler(0, 0, 0);
             ani.SetBool("走路開關", true);
+            playerDirection = false;
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
             transform.rotation = Quaternion.Euler(0, 180, 0);
             ani.SetBool("走路開關", true);
+            playerDirection = true;
         }
+
         if (Input.GetKey(KeyCode.W))
         {
             rb2.isKinematic = false;
@@ -54,6 +61,20 @@ public class Elf : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 放置戰旗
+    /// </summary>
+    private void UseFlag()
+    {
+        float flagX = transform.position.x + 3;
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (!playerDirection) flagX = transform.position.x - 3;
+
+            GameObject.Find("戰旗").transform.position = new Vector3(flagX, transform.position.y + 0.6f);
+        }
+    }
 
     private void Buildings()
     {

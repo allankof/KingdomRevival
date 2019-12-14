@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7179408213229132771}
   - component: {fileID: 3088116919903703526}
   - component: {fileID: 6769361400315291474}
+  - component: {fileID: 3654130670906547081}
   m_Layer: 0
   m_Name: "\u5F13\u7BAD\u624B2"
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763799806517516218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.586624, y: -0.96082735, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 576655041
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2e3dc1b6bd061654b993f7fb14b29204, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,7 +118,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.02, y: -0.1}
-  m_Size: {x: 1.1, y: 2.9}
+  m_Size: {x: 1.1, y: 3}
   m_Direction: 0
 --- !u!50 &3088116919903703526
 Rigidbody2D:
@@ -158,3 +159,24 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
+--- !u!114 &3654130670906547081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763799806517516218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636cedffc1fb7b24daea0589df9a7f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 2150655062427813153, guid: bc0fb348fdd26e744b5d33ceb4d590d9, type: 3}
+  rb2dArcher: {fileID: 3088116919903703526}
+  gm: {fileID: 0}
+  hp: 100
+  moveSpeed: 10
+  attackRange: 16
+  defendRange: 16
+  forceX: 17
+  forceY: 17

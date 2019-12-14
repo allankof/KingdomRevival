@@ -6,6 +6,8 @@ TagManager:
   tags:
   - "\u5EFA\u7BC9\u7269"
   - "\u8FB2\u4F5C\u7269"
+  - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - 
   - buildings
   - ground
-  - 
-  - 
-  - 
-  - 
+  - npc
+  - Enemy Collider
+  - DefendBuildings
+  - Knight Collider
   - 
   - 
   - 
@@ -40,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: "\u5F8C\u666F"
+    uniqueID: 2967192507
+    locked: 0
   - name: background
     uniqueID: 1813483333
     locked: 0
@@ -49,6 +54,15 @@ TagManager:
   - name: buildings
     uniqueID: 2795147079
     locked: 0
-  - name: characater
+  - name: NPC
     uniqueID: 576655041
+    locked: 0
+  - name: item
+    uniqueID: 1965091523
+    locked: 0
+  - name: Enemy
+    uniqueID: 2938033925
+    locked: 0
+  - name: Player
+    uniqueID: 2619116357
     locked: 0
