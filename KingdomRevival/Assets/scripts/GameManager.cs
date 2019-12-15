@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         mainCamera.position = player.position - offset;
 
         TimeCycle();
-        //StartCoroutine(ChangeTile());
+        StartCoroutine(ChangeTile());
     }
 
 
@@ -95,6 +95,10 @@ public class GameManager : MonoBehaviour
         return dayTime;
     }
 
+    /// <summary>
+    /// Tilemap材質轉換
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ChangeTile()
     {
         //dayTime = (int)Time.realtimeSinceStartup;
@@ -120,6 +124,7 @@ public class GameManager : MonoBehaviour
                 background.transform.GetChild(0).gameObject.SetActive(true);
                 background.transform.GetChild(1).gameObject.SetActive(false);
                 background.transform.GetChild(2).gameObject.SetActive(false);
+                myTilemap.RefreshAllTiles();
                 break;
             case DayNight.sunSet:
                 usedTilemap[0].sprite = treeSpriteSs01;
@@ -129,6 +134,7 @@ public class GameManager : MonoBehaviour
                 background.transform.GetChild(0).gameObject.SetActive(false);
                 background.transform.GetChild(1).gameObject.SetActive(true);
                 background.transform.GetChild(2).gameObject.SetActive(false);
+                myTilemap.RefreshAllTiles();
                 break;
             case DayNight.night:
                 usedTilemap[0].sprite = treeSpriteN01;
@@ -138,12 +144,11 @@ public class GameManager : MonoBehaviour
                 background.transform.GetChild(0).gameObject.SetActive(false);
                 background.transform.GetChild(1).gameObject.SetActive(false);
                 background.transform.GetChild(2).gameObject.SetActive(true);
+                myTilemap.RefreshAllTiles();
                 break;
             default:
                 break;
         }
-        myTilemap.RefreshAllTiles();
-
         yield return new WaitForSeconds(0.3f);
     }
 
@@ -263,7 +268,10 @@ public class GameManager : MonoBehaviour
         //print(hit2D.collider);
         return hit2D.collider;
     }
-
+    /// <summary>
+    /// 偵測敵人
+    /// </summary>
+    /// <returns></returns>
     public Collider2D RayKnight()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(knightRayPoint.position + Vector3.up, -transform.right, 300, 1 << 13);
@@ -282,8 +290,6 @@ public class GameManager : MonoBehaviour
             availablePlaces.Add(position);
         }
     }
-
-    
 
     /*
     /// <summary>

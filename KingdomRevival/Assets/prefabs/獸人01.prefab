@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5951597729688695192}
   - component: {fileID: 5951597729688695173}
   - component: {fileID: 5951597729688695193}
+  - component: {fileID: 2958488142122896822}
   m_Layer: 11
   m_Name: "\u7378\u4EBA01"
   m_TagString: Enemy
@@ -158,3 +159,19 @@ EdgeCollider2D:
   m_Points:
   - {x: -2, y: 0}
   - {x: 2, y: 0}
+--- !u!114 &2958488142122896822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951597729688695174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742283bb842e9a64a8851c61cf182468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 200
+  attack: 50
+  attackRange: 3
+  moveSpeed: 5

@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8633970511647204754}
+  moveSpeed: 10
+  money: 0
 --- !u!68 &3249626386030292088
 EdgeCollider2D:
   m_ObjectHideFlags: 0

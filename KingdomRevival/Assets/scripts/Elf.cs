@@ -28,7 +28,7 @@ public class Elf : MonoBehaviour
     void Update()
     {
         Move();
-        UseFlag();
+        //UseFlag();
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public class Elf : MonoBehaviour
             //rb2.AddRelativeForce(transform.position, ForceMode2D.Impulse);
         }
     }
-
+    /*
     /// <summary>
     /// 放置戰旗
     /// </summary>
@@ -75,9 +75,6 @@ public class Elf : MonoBehaviour
             GameObject.Find("戰旗").transform.position = new Vector3(flagX, transform.position.y + 0.6f);
         }
     }
+    */
 
-    private void Buildings()
-    {
-        //Instantiate()
-    }
 }

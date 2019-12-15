@@ -7,23 +7,24 @@ public class Archer : MonoBehaviour
 {
     public GameObject arrow;
     public Rigidbody2D rb2dArcher;
-    public GameManager gm;
-
+    
     public float hp = 100;
     public float walkSpeed = 5;
     public float runSpeed = 8;
-    public float attackRange = 16;
+    public float attackRange = 10;
     public float defendRange = 14;
-    public float forceX = 17;
-    public float forceY = 17;
+    public float forceX = 12;
+    public float forceY = 14;
 
     private Rigidbody2D rb2dArrow;
     private float timerAttack;
     private float attackCD = 1.5f;
     private bool isGround;
     private float enemyDistance;
-    public bool isAttackMode;
+    public bool isAttackMode = true;
     private float moveSpeed;
+
+    private GameManager gm;
 
     private CapsuleCollider2D cc2d;
     private Animator ani;
@@ -35,6 +36,8 @@ public class Archer : MonoBehaviour
         rb2dArcher = GetComponent<Rigidbody2D>();
         cc2d = GetComponent<CapsuleCollider2D>();
         ani = GetComponent<Animator>();
+
+        gm = GameObject.Find("GameController").GetComponent<GameManager>();
 
         moveSpeed = walkSpeed;
     }
@@ -123,7 +126,7 @@ public class Archer : MonoBehaviour
     /// <param name="posX"></param>
     private void ActionMode01(Collider2D c2DDoor)
     {
-        float posX = Random.Range(6, 9);
+        float posX = Random.Range(1, 3);
         float dis = c2DDoor.transform.position.x - transform.position.x;
 
         //float dis = Vector3.Distance(transform.position, c2DDoor.transform.position);
@@ -204,14 +207,18 @@ public class Archer : MonoBehaviour
         float vecY = forceY * (enemyDistance / attackRange);
 
         rb2dArrow = Instantiate(arrow, transform.position - Vector3.up * 0.5f, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+        rb2dArrow.AddForce(new Vector2(vecX, vecY), ForceMode2D.Impulse);
+        /*
         if (gm.RayDefend() != null)
         {
-            rb2dArrow.AddForce(new Vector2(vecX / 1.5f, vecY * 1.5f), ForceMode2D.Impulse);
+            rb2dArrow.AddForce(new Vector2(vecX / 1.2f, vecY * 1.2f), ForceMode2D.Impulse);
         }
         else
         {
             rb2dArrow.AddForce(new Vector2(vecX, vecY), ForceMode2D.Impulse);
         }
+        */
     }
 
     private void Idle()

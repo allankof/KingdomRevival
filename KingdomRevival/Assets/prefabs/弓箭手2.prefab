@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3088116919903703526}
   - component: {fileID: 6769361400315291474}
   - component: {fileID: 3654130670906547081}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "\u5F13\u7BAD\u624B2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,8 +175,10 @@ MonoBehaviour:
   rb2dArcher: {fileID: 3088116919903703526}
   gm: {fileID: 0}
   hp: 100
-  moveSpeed: 10
-  attackRange: 16
+  walkSpeed: 5
+  runSpeed: 8
+  attackRange: 10
   defendRange: 16
-  forceX: 17
-  forceY: 17
+  forceX: 12
+  forceY: 14
+  isAttackMode: 0
